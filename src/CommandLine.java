@@ -22,14 +22,15 @@ public class CommandLine {
     public static void writeOut(FastaTool tool){
         int splitter = 0;
         Sequence actualSeq;
-        int formatter = 57;
+        int formatter = 59;
 
         while(splitter < tool.getNumbers()[4]){
             if(splitter+59 <= tool.getNumbers()[4]) {
                 System.out.println(String.format("%27s %" + formatter+"s", splitter+1 , splitter+60));
             }
             else{
-                System.out.println(String.format("%28s %" + formatter+"s", splitter+1 , tool.getNumbers()[4]));
+                formatter=tool.getNumbers()[4]-splitter-1;
+                System.out.println(String.format("%28s %" + formatter  +"s", splitter+1 , tool.getNumbers()[4]));
             }
             for(int i = 0; i< tool.getSequenclist().size(); i++){
                 actualSeq = tool.getSequenclist().get(i);
